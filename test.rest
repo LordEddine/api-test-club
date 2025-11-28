@@ -1,0 +1,18 @@
+get http://localhost:3000/etudiants
+
+###
+post http://localhost:3000/etudiants
+content-type: application/json
+
+{
+  "name": "eddine",
+  "email": "eddine@gmail.com"
+}
+
+###
+PATCH http://localhost:3000/etudiants/1
+content-type: application/json
+
+{
+  "email": "newemail@example.com"
+}
