@@ -1,18 +1,43 @@
-get http://localhost:3000/etudiants
+get http://localhost:3000/etudiants/
 
 ###
 post http://localhost:3000/etudiants
 content-type: application/json
 
 {
-  "name": "eddine",
-  "email": "eddine@gmail.com"
+  "name": "Alex",
+  "email": "Alex@gmail.com"
 }
 
 ###
-PATCH http://localhost:3000/etudiants/1
+PATCH http://localhost:3000/etudiants/123a
 content-type: application/json
 
 {
-  "email": "newemail@example.com"
+  "email": "Edd@example.com"
 }
+
+###
+DELETE http://localhost:3000/etudiants/3
+
+
+###
+POST http://localhost:3000/clubs
+content-type: application/json
+
+{
+  "name": "Abot Club",
+  "description": "A club for Abot enthusiasts",
+  "presidentId":4
+}
+
+
+###
+GET http://localhost:3000/clubs?name=robot
+
+
+###
+POST http://localhost:3000/clubs/2/join/4
+
+###
+POST http://localhost:3000/clubs/2/leave/4

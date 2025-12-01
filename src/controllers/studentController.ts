@@ -52,7 +52,7 @@ export const getAllStudents = async(req: Request, res: Response)=>{
         })
     }
 }
-
+// PATCH 
 export const modifierStudent = async(req:Request, res:Response) =>{
     try{
     const id = req.params.id;
@@ -95,4 +95,29 @@ export const modifierStudent = async(req:Request, res:Response) =>{
 
         console.log(error);
     }
+}
+
+// Récupérer un étudiant par ID
+export const getStudentById = async(req: Request, res: Response) => {
+    const id = Number(req.params.id);
+
+    const student = await prisma.student.findUnique({
+        where : {id},
+        include: {
+            clubs: true, 
+            presidentClub: true}
+    })
+    res.json(student)
+}
+
+// Delete Etudiant 
+export const deleteStudent = async(req: Request, res: Response) =>{
+    const id = Number(req.params.id);
+
+    await prisma.student.delete({
+        where: {id}
+    })
+    res.status(200).json({
+        success: true, 
+        message : `Étudiant avec l'id ${id} supprimé avec succès`})
 }

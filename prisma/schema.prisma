@@ -43,7 +43,6 @@ model Activity{
   date          DateTime 
 
   // Relation avec Club 
-
   clubId        Int   
   club          Club      @relation(fields:[clubId], references:[id], onDelete: Cascade)
 
